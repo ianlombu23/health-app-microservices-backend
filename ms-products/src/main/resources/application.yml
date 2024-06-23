@@ -1,0 +1,7 @@
+server:
+  port: 3031
+spring:
+  application:
+    name: ms-products
+  profiles:
+    active: local

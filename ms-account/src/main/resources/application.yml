@@ -1,0 +1,16 @@
+server:
+  port: 3030
+spring:
+  application:
+    name: ms-account
+  profiles:
+    active: local
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    gateway:
+      enabled: true
