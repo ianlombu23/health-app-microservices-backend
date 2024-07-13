@@ -19,9 +19,8 @@ public class DocterDetailService {
         DocterDetailProjection docterDetail = docterRepository.findDocterDetail(docterId)
                 .orElseThrow(() -> new CustomException(
                         "1300",
-                        "Data tidak ditemukan",
-                        HttpStatus.CONFLICT)
-                );
+                        "Data tidak ditemukan"
+                ));
 
         return DocterDetailResponse.builder()
                 .docterId(docterDetail.getDocterId())

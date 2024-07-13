@@ -19,7 +19,9 @@ public class DocterListService {
     private final DocterRepository docterRepository;
 
     public DocterListResponse getDocterList(DocterListRequest request) {
-        Gender gender = Optional.ofNullable(request.getGender()).map(Gender::valueOf).orElse(null);
+        Gender gender = Optional.ofNullable(request.getGender())
+                .map(g -> Gender.valueOf(g.toUpperCase()))
+                .orElse(null);
         List<DocterDetailProjection> docterList = docterRepository.findAllDocterByFilter(request.getSpecialistId(), gender);
 
         List<DocterDetailResponse> response  = docterList.stream().map(this::enrichResponse).toList();
